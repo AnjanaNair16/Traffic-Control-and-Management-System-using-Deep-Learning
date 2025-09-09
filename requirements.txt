@@ -1,0 +1,6 @@
+flask
+paho-mqtt
+tensorflow
+numpy
+pandas
+scikit-learn
