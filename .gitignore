@@ -1,0 +1,21 @@
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+
+# Data files
+data/*.csv
+
+# Trained models
+model/*.h5
+model/lane_classes.npy
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
