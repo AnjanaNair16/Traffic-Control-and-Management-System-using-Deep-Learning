@@ -1,8 +1,9 @@
 
 
-# TrafficFlowOptimizer
+# Traffic Control and Management System Using Deep Learning
 
-**Traffic Control and Optimization Sytstem** is an AI-driven smart traffic management system that dynamically optimizes traffic signal timings based on real-time sensor data. The system supports both **real IR sensors** and a **Python-based sensor simulator** for testing. It features adaptive green light timing using deep learning, a Flask-based dashboard for monitoring, and data logging for analysis.
+
+**Traffic Control and Management System Using Deep Learning** is an AI-driven smart traffic management system that dynamically optimizes traffic signal timings based on real-time sensor data. The system supports both **real IR sensors** and a **Python-based sensor simulator** for testing. It features adaptive green light timing using deep learning, a Flask-based dashboard for monitoring, and data logging for analysis.
 
 ---
 
