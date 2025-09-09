@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Traffic Dashboard</title>
+  
+  <!-- Google Fonts for consistency -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Dashboard Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+  <!-- ✅ Load Paho FIRST (local copy instead of broken CDN) -->
+  <script src="{{ url_for('static', filename='libs/mqttws31.min.js') }}"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1>
+      <span class="header-icon">🚦</span>
+      Smart Traffic Control Dashboard
+    </h1>
+
+    <div class="conn-panel">
+      <span id="connStatus" class="disconnected">Status: Disconnected</span>
+      <div class="conn-inputs">
+        <div class="input-group">
+          <label>Broker</label>
+          <input id="broker" value="192.168.169.139" />
+        </div>
+        <div class="input-group">
+          <label>WS Port</label>
+          <input id="wsport" value="9001" />
+        </div>
+      </div>
+      <div class="conn-buttons">
+        <button id="btnConnect" class="btn-primary">Connect</button>
+        <button id="btnDisconnect" class="btn-secondary" disabled>Disconnect</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="top-row">
+      <div class="lanes-section">
+        <div class="lanes">
+          <div class="lane-card" id="lane1">
+            <h2>Lane 1</h2>
+            <div class="signal-container">
+              <div class="signal"></div>
+            </div>
+            <div class="state">RED</div>
+          </div>
+          <div class="lane-card" id="lane2">
+            <h2>Lane 2</h2>
+            <div class="signal-container">
+              <div class="signal"></div>
+            </div>
+            <div class="state">RED</div>
+          </div>
+          <div class="lane-card" id="lane3">
+            <h2>Lane 3</h2>
+            <div class="signal-container">
+              <div class="signal"></div>
+            </div>
+            <div class="state">RED</div>
+          </div>
+          <div class="lane-card" id="lane4">
+            <h2>Lane 4</h2>
+            <div class="signal-container">
+              <div class="signal"></div>
+            </div>
+            <div class="state">RED</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="control-panel">
+        <div class="now">
+          <h2>Current Status</h2>
+          <div class="status-info">
+            <p><span class="label">Active Lane:</span> <span id="activeLane" class="value">—</span></p>
+            <p id="countdown" class="countdown">⏱ 0s</p>
+          </div>
+
+          <div class="sensors">
+            <h3>IR Sensors</h3>
+            <div class="sensor-grid">
+              <div class="srow"><span>IR1:</span> <b id="ir1">0</b></div>
+              <div class="srow"><span>IR2:</span> <b id="ir2">0</b></div>
+              <div class="srow"><span>IR3:</span> <b id="ir3">0</b></div>
+              <div class="srow"><span>IR4:</span> <b id="ir4">0</b></div>
+            </div>
+          </div>
+
+          <div class="stats">
+            <h3>Statistics</h3>
+            <div class="stats-grid">
+              <div class="srow"><span>Cycles:</span> <b id="stCycles">0</b></div>
+              <div class="srow"><span>Total Served:</span> <b id="stServed">0</b></div>
+              <div class="srow"><span>Avg Wait (s):</span> <b id="stAvgWait">15.2</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart">
+      <h2>Vehicle History (IR1-IR4)</h2>
+      <div class="chart-container">
+        <canvas id="historyChart" height="120"></canvas>
+      </div>
+    </section>
+
+    <section class="history">
+      <h2>AI Decision History</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Lane</th>
+              <th>Green (s)</th>
+              <th>IR Sensors [1,2,3,4]</th>
+              <th>Reason</th>
+            </tr> 
+          </thead>
+          <tbody id="decisionTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>Powered by ESP32 + Flask + MQTT + TensorFlow</p>
+      <div class="tech-badges">
+        <span class="badge">ESP32</span>
+        <span class="badge">Flask</span>
+        <span class="badge">MQTT</span>
+        <span class="badge">TensorFlow</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let cycles = 0;
+    let totalServed = 0;
+    let avgWait = 0;
+
+    function updateStats() {
+      // Example logic (replace with real MQTT data if available)
+      cycles += 1;
+      totalServed += Math.floor(Math.random() * 5 + 1); // random cars served
+      avgWait = totalServed ? (Math.random() * 20).toFixed(1) : 0;
+
+      document.getElementById("stCycles").textContent = cycles;
+      document.getElementById("stServed").textContent = totalServed;
+      document.getElementById("stAvgWait").textContent = avgWait;
+    }
+
+    setInterval(updateStats, 3000); // update every 3 seconds
+  </script>
+
+  <!-- ✅ Load your dashboard code LAST -->
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
+

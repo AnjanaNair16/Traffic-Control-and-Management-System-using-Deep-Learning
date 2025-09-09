@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Traffic Control System - Homepage Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+/* Homepage CSS - Modern Professional Design matching Dashboard */
+
+/* CSS Variables - Exact match with Dashboard */
+:root {
+  --deep-blue: #1e3a8a;
+  --traffic-green: #10b981;
+  --amber: #f59e0b;
+  --light-gray: #f8fafc;
+  --white: #ffffff;
+  --dark-gray: #374151;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #334155;
+  --border-color: #475569;
+  --success: #059669;
+  --danger: #dc2626;
+  --warning: #d97706;
+  
+  /* Shadows - Exact match with Dashboard */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Transitions - Exact match with Dashboard */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #0c1426 100%);
+  color: var(--white);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  transition: all var(--transition-normal);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow-lg);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--traffic-green);
+}
+
+.logo-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--traffic-green);
+}
+
+.nav-link.active {
+  color: var(--traffic-green);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--traffic-green);
+  border-radius: 1px;
+}
+
+.dashboard-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--traffic-green);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-link:hover {
+  background: var(--success);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--white) !important;
+}
+
+.dashboard-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition-normal);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(12, 20, 38, 0.8) 100%);
+}
+
+.traffic-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 20% 50%, var(--traffic-green) 2px, transparent 2px),
+    radial-gradient(circle at 40% 20%, var(--amber) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, var(--traffic-green) 2px, transparent 2px),
+    radial-gradient(circle at 60% 70%, var(--amber) 1px, transparent 1px);
+  background-size: 80px 80px, 50px 50px, 120px 120px, 60px 60px;
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, var(--white), var(--traffic-green));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: var(--text-secondary);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button.primary {
+  background: var(--traffic-green);
+  color: var(--white);
+}
+
+.cta-button.primary:hover {
+  background: var(--success);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--border-color);
+}
+
+.cta-button.secondary:hover {
+  border-color: var(--traffic-green);
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+.cta-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hero Visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.traffic-intersection {
+  position: relative;
+}
+
+.intersection-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.traffic-light {
+  position: absolute;
+  background: var(--bg-card);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.tl-north {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+}
+
+.tl-south {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+}
+
+.tl-east {
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: row;
+}
+
+.tl-west {
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: row;
+}
+
+.light {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  opacity: 0.3;
+  transition: all var(--transition-normal);
+}
+
+.light.red {
+  background: var(--danger);
+}
+
+.light.amber {
+  background: var(--amber);
+}
+
+.light.green {
+  background: var(--traffic-green);
+}
+
+.light.active {
+  opacity: 1;
+  box-shadow: 0 0 15px currentColor;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.intersection-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  border: 3px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.data-streams {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.data-stream {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--amber);
+  border-radius: 50%;
+  animation: dataFlow 4s linear infinite;
+}
+
+.stream-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.stream-2 {
+  top: 30%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.stream-3 {
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.stream-4 {
+  bottom: 35%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes dataFlow {
+  0% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0) translate(50px, 50px); }
+}
+
+/* Section Styles */
+section {
+  padding: 6rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Features Section */
+.features {
+  background: var(--bg-secondary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
+  transition: var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--traffic-green);
+}
+
+.feature-card:hover::before {
+  background: var(--traffic-green);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--traffic-green);
+  transition: all var(--transition-normal);
+}
+
+.feature-card:hover .feature-icon {
+  background: var(--traffic-green);
+  color: var(--white);
+  transform: scale(1.1);
+}
+
+.feature-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Analytics Section */
+.analytics {
+  background: var(--bg-primary);
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.analytics-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.analytics-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--border-color);
+  transition: var(--transition-normal);
+}
+
+.analytics-card.primary::before {
+  background: var(--traffic-green);
+}
+
+.analytics-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--traffic-green);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--traffic-green);
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.card-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.card-value {
+  margin-bottom: 1rem;
+}
+
+.value-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+
+.value-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.card-trend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.card-trend svg {
+  width: 16px;
+  height: 16px;
+}
+
+.card-trend.positive {
+  color: var(--traffic-green);
+}
+
+.card-trend.negative {
+  color: var(--success);
+}
+
+/* Live Status */
+.live-status {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.live-status h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(51, 65, 85, 0.3);
+  border-radius: 0.75rem;
+  transition: var(--transition-fast);
+}
+
+.status-item:hover {
+  background: rgba(51, 65, 85, 0.5);
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.status-indicator.green {
+  background: var(--traffic-green);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.status-indicator.amber {
+  background: var(--amber);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.status-indicator.red {
+  background: var(--danger);
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.4);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.status-label {
+  font-weight: 500;
+  color: var(--white);
+  flex: 1;
+}
+
+.status-value {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* About Section */
+.about {
+  background: var(--bg-secondary);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.section-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.tech-stack h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.tech-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition-fast);
+}
+
+.tech-item:hover {
+  border-color: var(--traffic-green);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+}
+
+.tech-item span {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.stats-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--bg-card);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-normal);
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--traffic-green);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--traffic-green);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-primary);
+  padding: 3rem 0 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+.footer-brand {
+  max-width: 400px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.footer-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-section a:hover {
+  color: var(--traffic-green);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-bottom p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .tech-items {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background-color: rgba(30, 41, 59, 0.98);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    text-align: center;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-showcase {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .nav-container {
+    padding: 1rem;
+  }
+  
+  .feature-card, .analytics-card {
+    padding: 1.5rem;
+  }
+  
+  .intersection-container {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--traffic-green);
+  outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="16" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 8h6M9 16h6" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <span class="logo-text">Smart Traffic Control</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="dashboard.html" class="nav-link dashboard-link">
+                    <span>Dashboard</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <div class="traffic-pattern"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Smart Traffic Control System</h1>
+                <p class="hero-tagline">Revolutionizing urban mobility with AI-powered traffic optimization, real-time monitoring, and intelligent congestion management for smarter cities.</p>
+                <div class="hero-buttons">
+                    <a href="dashboard.html" class="cta-button primary">
+                        <span>Launch Dashboard</span>
+                        <svg viewBox="0 0 20 20" fill="currentColor" class="cta-icon">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#features" class="cta-button secondary">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="traffic-intersection">
+                    <div class="intersection-container">
+                        <div class="traffic-light tl-north">
+                            <div class="light red active"></div>
+                            <div class="light amber"></div>
+                            <div class="light green"></div>
+                        </div>
+                        <div class="traffic-light tl-east">
+                            <div class="light red"></div>
+                            <div class="light amber"></div>
+                            <div class="light green active"></div>
+                        </div>
+                        <div class="traffic-light tl-south">
+                            <div class="light red active"></div>
+                            <div class="light amber"></div>
+                            <div class="light green"></div>
+                        </div>
+                        <div class="traffic-light tl-west">
+                            <div class="light red"></div>
+                            <div class="light amber"></div>
+                            <div class="light green active"></div>
+                        </div>
+                        <div class="intersection-center"></div>
+                        <div class="data-streams">
+                            <div class="data-stream stream-1"></div>
+                            <div class="data-stream stream-2"></div>
+                            <div class="data-stream stream-3"></div>
+                            <div class="data-stream stream-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Advanced Traffic Management</h2>
+                <p class="section-subtitle">Cutting-edge technology for intelligent traffic control and optimization</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Real-time Monitoring</h3>
+                    <p class="feature-description">Continuous 24/7 monitoring of traffic conditions using advanced IoT sensors and machine learning algorithms for instant traffic analysis.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Congestion Detection</h3>
+                    <p class="feature-description">AI-powered congestion detection system that identifies traffic bottlenecks and automatically adjusts signal timing for optimal flow.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 6V2H8v4H2v6h6v10h4V8h10V2h-4v4h-6z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">AI Traffic Light Control</h3>
+                    <p class="feature-description">Intelligent traffic light management system powered by TensorFlow that adapts signal timing based on real-time traffic patterns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 3v18h18V3H3z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">MQTT Communication</h3>
+                    <p class="feature-description">Reliable message queuing protocol for seamless communication between traffic sensors, controllers, and central management system.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M3 13h8L8 9l1.5-1.5L15 13V7h6v14H3v-8z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Predictive Analytics</h3>
+                    <p class="feature-description">Advanced analytics engine that predicts traffic patterns and suggests proactive adjustments to prevent congestion before it occurs.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Smart City Integration</h3>
+                    <p class="feature-description">Seamlessly integrates with existing smart city infrastructure and scales with urban growth for future-ready traffic management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Highlights Section -->
+    <section class="analytics" id="analytics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Traffic Insights & Analytics</h2>
+                <p class="section-subtitle">Real-time data and performance metrics for informed decision making</p>
+            </div>
+            <div class="analytics-grid">
+                <div class="analytics-card primary">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Active Intersections</h3>
+                    </div>
+                    <div class="card-value">
+                        <span class="value-number">127</span>
+                        <span class="value-label">Currently Monitored</span>
+                    </div>
+                    <div class="card-trend positive">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>+12% this month</span>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M16 4h2a2 2 0 012 2v12a2 2 0 01-2 2h-2M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h2M12 2v20" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Vehicles Processed</h3>
+                    </div>
+                    <div class="card-value">
+                        <span class="value-number">2.1M</span>
+                        <span class="value-label">Today</span>
+                    </div>
+                    <div class="card-trend positive">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>+8.3% vs yesterday</span>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Avg Wait Time</h3>
+                    </div>
+                    <div class="card-value">
+                        <span class="value-number">18.2s</span>
+                        <span class="value-label">Per Vehicle</span>
+                    </div>
+                    <div class="card-trend negative">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>-23% improvement</span>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>System Efficiency</h3>
+                    </div>
+                    <div class="card-value">
+                        <span class="value-number">94.7%</span>
+                        <span class="value-label">Optimization Rate</span>
+                    </div>
+                    <div class="card-trend positive">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                        <span>+2.1% this week</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="live-status">
+                <h3>Live Traffic Status</h3>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <div class="status-indicator green"></div>
+                        <span class="status-label">Main Street</span>
+                        <span class="status-value">Optimal Flow</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-indicator amber"></div>
+                        <span class="status-label">Highway Junction</span>
+                        <span class="status-value">Moderate Traffic</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-indicator green"></div>
+                        <span class="status-label">Downtown Core</span>
+                        <span class="status-value">Light Traffic</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-indicator red"></div>
+                        <span class="status-label">Shopping District</span>
+                        <span class="status-value">Heavy Congestion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About the System</h2>
+                    <p class="section-description">
+                        Our Smart Traffic Control System represents the future of urban mobility management. Built on cutting-edge IoT technology, machine learning algorithms, and real-time data analytics, we're transforming how cities manage traffic flow and reduce congestion.
+                    </p>
+                    <div class="tech-stack">
+                        <h3>Powered by Advanced Technology</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <div class="tech-icon">🔧</div>
+                                <span>ESP32 IoT Controllers</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🌐</div>
+                                <span>Flask Web Framework</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">📡</div>
+                                <span>MQTT Protocol</span>
+                            </div>
+                            <div class="tech-item">
+                                <div class="tech-icon">🤖</div>
+                                <span>TensorFlow AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="stats-showcase">
+                        <div class="stat-item">
+                            <div class="stat-number">99.8%</div>
+                            <div class="stat-label">System Uptime</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Monitoring</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Real-time</div>
+                            <div class="stat-label">Processing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">AI-Powered</div>
+                            <div class="stat-label">Optimization</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="16" r="3" stroke="currentColor" stroke-width="2"/>
+                                <path d="M9 8h6M9 16h6" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <span>Smart Traffic Control System</span>
+                    </div>
+                    <p class="footer-description">Building the future of urban mobility with intelligent traffic management and AI-powered optimization.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>System</h4>
+                        <ul>
+                            <li><a href="#dashboard">Dashboard</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#analytics">Analytics</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Technology</h4>
+                        <ul>
+                            <li><a href="#">IoT Sensors</a></li>
+                            <li><a href="#">AI & ML</a></li>
+                            <li><a href="#">Real-time Data</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Smart Traffic Control System. Revolutionizing urban mobility.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+// Homepage JavaScript - Interactive Elements and Animations
+
+// DOM Elements
+const navbar = document.getElementById('navbar');
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    });
+
+    // Hamburger menu toggle
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        
+        // Animate hamburger
+        const spans = hamburger.querySelectorAll('span');
+        if (hamburger.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans.forEach(span => {
+                span.style.transform = '';
+                span.style.opacity = '';
+            });
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navbar.contains(e.target)) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            
+            const spans = hamburger.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = '';
+                span.style.opacity = '';
+            });
+        }
+    });
+});
+
+// Scroll effects
+window.addEventListener('scroll', function() {
+    const scrolled = window.scrollY > 50;
+    
+    // Navbar shadow effect
+    if (scrolled) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    // Update active navigation link based on scroll position
+    updateActiveNavLink();
+});
+
+// Update active navigation link based on scroll position
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPos = window.scrollY + 100; // Offset for fixed navbar
+    
+    sections.forEach(section => {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        const id = section.getAttribute('id');
+        const correspondingLink = document.querySelector(`a[href="#${id}"]`);
+        
+        if (scrollPos >= top && scrollPos < bottom) {
+            // Remove active class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+            // Add active class to current link
+            if (correspondingLink) {
+                correspondingLink.classList.add('active');
+            }
+        }
+    });
+}
+
+// Traffic light cycling animation for hero section
+function cycleTrafficLights() {
+    const trafficLights = document.querySelectorAll('.traffic-light');
+    const lightStates = ['red', 'amber', 'green'];
+    
+    trafficLights.forEach((trafficLight, index) => {
+        const lights = trafficLight.querySelectorAll('.light');
+        let currentStateIndex = index % lightStates.length;
+        
+        // Set initial state
+        lights[currentStateIndex].classList.add('active');
+        
+        setInterval(() => {
+            // Remove active class from all lights
+            lights.forEach(light => light.classList.remove('active'));
+            
+            // Move to next state
+            currentStateIndex = (currentStateIndex + 1) % lightStates.length;
+            lights[currentStateIndex].classList.add('active');
+            
+        }, 3000 + (index * 500)); // Staggered timing for each light
+    });
+}
+
+// Start traffic light animation
+document.addEventListener('DOMContentLoaded', cycleTrafficLights);
+
+// Enhanced button interactions with ripple effect
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaButtons = document.querySelectorAll('.cta-button');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px) scale(1.02)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+
+        // Add ripple effect on click
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+});
+
+// Parallax effect for hero background
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const trafficPattern = document.querySelector('.traffic-pattern');
+    
+    if (trafficPattern) {
+        const speed = scrolled * 0.3;
+        trafficPattern.style.transform = `translateY(${speed}px)`;
+    }
+});
+
+// Live status indicator updates
+function updateLiveStatus() {
+    const statusIndicators = document.querySelectorAll('.status-indicator');
+    const statusValues = document.querySelectorAll('.status-value');
+    
+    const statusOptions = {
+        green: ['Optimal Flow', 'Light Traffic', 'Smooth Movement'],
+        amber: ['Moderate Traffic', 'Building Up', 'Slow Movement'],
+        red: ['Heavy Congestion', 'Traffic Jam', 'Delays Expected']
+    };
+    
+    statusIndicators.forEach((indicator, index) => {
+        if (Math.random() < 0.2) { // 20% chance to change status
+            const currentClass = indicator.className.split(' ').find(c => ['green', 'amber', 'red'].includes(c));
+            const possibleStates = ['green', 'amber', 'red'];
+            const newState = possibleStates[Math.floor(Math.random() * possibleStates.length)];
+            
+            if (currentClass !== newState) {
+                indicator.classList.remove(currentClass);
+                indicator.classList.add(newState);
+                
+                const statusValue = statusValues[index];
+                if (statusValue) {
+                    const newText = statusOptions[newState][Math.floor(Math.random() * statusOptions[newState].length)];
+                    statusValue.textContent = newText;
+                }
+            }
+        }
+    });
+}
+
+// Update live status every 8 seconds
+setInterval(updateLiveStatus, 8000);
+
+// Analytics counter animation when section comes into view
+const analyticsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            analyticsObserver.disconnect(); // Run only once
+        }
+    });
+}, { threshold: 0.5 });
+
+function animateCounters() {
+    const counters = document.querySelectorAll('.value-number');
+    
+    counters.forEach(counter => {
+        const target = counter.textContent;
+        const isNumber = /^\d+(\.\d+)?/.test(target);
+        
+        if (isNumber) {
+            const numericValue = parseFloat(target);
+            const suffix = target.replace(/[\d.]/g, '');
+            
+            let current = 0;
+            const increment = numericValue / 60;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= numericValue) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current) + suffix;
+                }
+            }, 30);
+        }
+    });
+}
+
+// Start counter animation when analytics section is visible
+document.addEventListener('DOMContentLoaded', function() {
+    const analyticsSection = document.querySelector('.analytics');
+    if (analyticsSection) {
+        analyticsObserver.observe(analyticsSection);
+    }
+});
+
+// Keyboard navigation enhancement
+document.addEventListener('keydown', function(e) {
+    // Allow Escape to close mobile menu
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+        
+        const spans = hamburger.querySelectorAll('span');
+        spans.forEach(span => {
+            span.style.transform = '';
+            span.style.opacity = '';
+        });
+    }
+});
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debounce to scroll handler
+const debouncedScrollHandler = debounce(function() {
+    const scrolled = window.scrollY > 50;
+    
+    if (scrolled) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+    
+    updateActiveNavLink();
+    
+    // Parallax effect
+    const scrolled_amount = window.pageYOffset;
+    const trafficPattern = document.querySelector('.traffic-pattern');
+    
+    if (trafficPattern) {
+        const speed = scrolled_amount * 0.3;
+        trafficPattern.style.transform = `translateY(${speed}px)`;
+    }
+}, 10);
+
+window.addEventListener('scroll', debouncedScrollHandler);
+    </script>
+</body>
+</html>
