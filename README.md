@@ -35,7 +35,7 @@
 ## Project Structure
 
 ```
-TrafficFlowOptimizer/
+Traffic_Control/
 │
 ├── backend/
 │   ├── sensor_simulator.py       # Simulates IR sensors and emergencies
@@ -54,12 +54,13 @@ TrafficFlowOptimizer/
 │   │   ├── dashboard.css
 │   │   ├── dashboard.js
 │   │   ├── homepage.css
-│   │   └── homepage.js
+│   │   ├── homepage.js
+|   |   └──app.py                 # Flask app for dashboard
 │   └── templates/
 │       ├── homepage.html
 │       └── dashboard.html
 │
-├── app.py                        # Flask app for dashboard
+|                       
 ├── requirements.txt              # Python dependencies
 └── README.md                     # Project documentation
 ```
@@ -74,7 +75,7 @@ Got it! You can modify the **Setup Instructions** to include an initial step for
 1. **Download or clone the repository:**
 
 * **If downloaded as ZIP:**
-  Unzip the `TrafficFlowOptimizer.zip` (or `Traffic_Control.zip`) file and navigate into the folder:
+  Unzip the `Traffic Control and Management System Using Deep Learning`.zip` (or `Traffic_Control.zip`) file and navigate into the folder:
 
 ```bash
 unzip Traffic_Control.zip
